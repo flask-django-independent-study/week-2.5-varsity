@@ -33,3 +33,4 @@ class RestrictedAdminIndexView(AdminIndexView):
 
 # NOW THE ADMIN PART IS COMPLETED! GO TO THE REPO "week-2.5-varsity" TO
 # COMPLETE TO LOGIN PART OF THE ASSIGNMENT
+# https://github.com/flask-django-independent-study/week-2.5-varsity
