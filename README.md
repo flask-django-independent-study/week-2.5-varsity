@@ -2,6 +2,8 @@
 
 ### Check out the [resources](https://github.com/flask-django-independent-study/varsity/blob/master/Resources/Week-2.md) then complete the TODOs in the project
 
+### [Demo](https://drive.google.com/file/d/1b46tbVU6CfdIkJGdeKUsjaM4vzMf9OWW/view?usp=sharing)
+
 #### From the Flask-Admin Docs
 
 > **Why Flask-Admin?** In a world of micro-services and APIs, Flask-Admin solves the boring problem of building an admin interface on top of an existing data model. With little effort, it lets you manage your web service’s data through a user-friendly interface.
@@ -27,11 +29,11 @@
 
 ## Stretch Challenges
 
-* Hash passwords using bcrypt
 * Add other attributes to the User class
-* Add a Secrets class
-* A User can have many Secrets (db.Relationship)
-* Display the secrets in the secrets template
+
+## Super Stretch Challenges
+
+* Add password reset by email
 
 If you you have any questions, feel free to contact Starlight or Sid via Slack.
 
