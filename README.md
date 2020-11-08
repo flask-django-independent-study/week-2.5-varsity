@@ -1,6 +1,8 @@
 # Week 2 Varsity | Admin, Login & Authentication
 
-### Check out the [resources](https://github.com/flask-django-independent-study/varsity/blob/master/Resources/Week-2.md) then complete the TODOs in the project
+### Check out the [resources](https://github.com/flask-django-independent-study/varsity/blob/master/Resources/Week-2.md) then complete the TODOs in the project.
+
+**IMPORTANT! START IN the_vault/config.py**
 
 ### [Demo](https://drive.google.com/file/d/1b46tbVU6CfdIkJGdeKUsjaM4vzMf9OWW/view?usp=sharing)
 
@@ -30,6 +32,7 @@
 ## Stretch Challenges
 
 * Add other attributes to the User class
+* Add additional classes and ways to CRUD the resource from the front-end
 
 ## Super Stretch Challenges
 

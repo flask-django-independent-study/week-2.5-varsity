@@ -1,6 +1,10 @@
 """Import libraries."""
 from flask_login import UserMixin, current_user
+
+# Here we import ModelView which serves as the default view in our admin panel
 from flask_admin.contrib.sqla import ModelView
+
+# Here we import admin which we will use below.
 from the_vault import db, login_manager, bcrypt, admin
 
 
@@ -15,7 +19,9 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    password = db.Column(db.String(255), nullable=True, unique=True)
+    password = db.Column(db.String(255), nullable=True)
+    # Here we create an is_admin property of the user. We set the default to
+    # False.
     is_admin = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
@@ -24,20 +30,13 @@ class User(db.Model, UserMixin):
             return f"Admin('{self.email}')"
         return f"User('{self.email}')"
 
-    def set_password(self, password):
-        """Set user's password as hash."""
-        self.password = bcrypt.generate_password_hash(password).decode(
-            "utf-8"
-        )
-
-    def check_password(self, password):
-        """Check if given password matches hashed password."""
-        return bcrypt.check_password_hash(self.password, password)
-
-    def check_admin(self):
-        """Check if user is authorized to be an admin."""
-        if self.email == "admin@admin.com":
-            self.is_admin = True
+    # TODO: create a check_admin method that returns True if the user's email
+    # is "admin@admin.com", and returns False otherwise.
 
 
-admin.add_view(ModelView(User, db.session))
+# TODO: call the add_view method on admin. add_view takes a view. The view
+# will take two arguements, a db class and db.session
+
+# TODO: try running the app and going to "/admin"
+# Is this different than before?
+# TODO: go to the_vault/admin.py
