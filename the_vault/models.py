@@ -38,5 +38,5 @@ class User(db.Model, UserMixin):
 # will take two arguements, a db class and db.session
 
 # TODO: try running the app and going to "/admin"
-# Is this different than before?
+# Is this different than before? Try clicking on "USER". What do you see?
 # TODO: go to the_vault/admin.py

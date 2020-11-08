@@ -14,7 +14,7 @@ class RestrictedAdminIndexView(AdminIndexView):
     """Admin view custom class."""
 
     # TODO: remove pass. This is just here as a placeholder.
-    pass
+
     # TODO: create an is_accessible method. This will override the default
     # method. This method will allow access to the admin panel if it
     # returns True.
@@ -25,11 +25,11 @@ class RestrictedAdminIndexView(AdminIndexView):
     # default method. It should take in self (like all methods), name, and
     # **kwargs as parameters. This method will tell the app what to do if
     # a user tries to access the admin page but does not have access
-    # TODO: redirect the user to the login route if they do not have access
+    # TODO: redirect the user to the home route if they do not have access
 
 
 # TODO: try running the app and going to "/admin"
 # What happened?
 
-# NOW THE ADMIN PART IS COMPLETED! GO TO THE REPO "week-2.5-varisty" TO
+# NOW THE ADMIN PART IS COMPLETED! GO TO THE REPO "week-2.5-varsity" TO
 # COMPLETE TO LOGIN PART OF THE ASSIGNMENT

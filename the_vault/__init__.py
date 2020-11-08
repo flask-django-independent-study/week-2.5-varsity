@@ -21,7 +21,7 @@ admin = Admin(template_mode="bootstrap4")
 bcrypt = Bcrypt()
 # TODO: instantiate LoginManager
 
-# TODO: set the login_manager.login_view to "users.login" this tells the
+# TODO: set the login_manager.login_view to "main.home" this tells the
 # LoginManager where to redirect the user if they are trying to access a page
 # which requires them to be logged in.
 
