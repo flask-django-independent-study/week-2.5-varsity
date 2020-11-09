@@ -1,13 +1,11 @@
 """Import libraries."""
 from flask_login import UserMixin, current_user
-
-# Here we import ModelView which serves as the default view in our admin panel
 from flask_admin.contrib.sqla import ModelView
-
-# Here we import admin which we will use below.
 from the_vault import db, login_manager, bcrypt, admin
 
-
+# This load_user function gets called behind the scenes everytime the
+# login_manager needs to check the current_user. The user that gets returned
+#  in the query is then assigned as the current_user
 @login_manager.user_loader
 def load_user(user_id):
     """Get current logged in user."""
@@ -20,8 +18,6 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=True)
-    # Here we create an is_admin property of the user. We set the default to
-    # False.
     is_admin = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
@@ -30,13 +26,25 @@ class User(db.Model, UserMixin):
             return f"Admin('{self.email}')"
         return f"User('{self.email}')"
 
-    # TODO: create a check_admin method that returns True if the user's email
-    # is "admin@admin.com", and returns False otherwise.
+    def check_admin(self):
+        """Check if user is authorized to be an admin."""
+        if self.email == "admin@admin.com":
+            self.is_admin = True
+
+    # TODO: create a set_password method that takes in self and password as
+    # arguments. Call bcrypt.generate_password_hash and pass in the password.
+    # Then set this as the user's password
+    # HINT: bcrypt encrypts the password as a byte, which is a data type
+    # that contains binary data. The generated password has will need to be
+    # decoded to utf-8
+
+    # TODO: create a check_password method that takes in self and password as
+    # arguments. Call bcrypt.check_password_hash and pass in the user's
+    # password along with the password to be checked. Return the result.
+    # check_password_hash returns True is the passwords match and False
+    # otherwise
 
 
-# TODO: call the add_view method on admin. add_view takes a view. The view
-# will take two arguements, a db class and db.session
+admin.add_view(ModelView(User, db.session))
 
-# TODO: try running the app and going to "/admin"
-# Is this different than before? Try clicking on "USER". What do you see?
-# TODO: go to the_vault/admin.py
+# TODO: go to the_vault/users/forms.py
